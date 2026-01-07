@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+  background-color: #0a0a0a;
+  color: #e0e0e0;
+  overflow-x: hidden;
+}
+
+.light body {
+  background-color: #f9fafb;
+  color: #1f2937;
+}
+
+.dark body {
+  background-color: #0a0a0a;
+  color: #e0e0e0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.typing-effect {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #fbbf24;
+  animation: typing 2s steps(40, end), blink 0.75s step-end infinite;
+}
+
+.terminal-window {
+  animation: fadeIn 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.terminal-window:nth-child(1) { animation-delay: 0.1s; }
+.terminal-window:nth-child(2) { animation-delay: 0.2s; }
+.terminal-window:nth-child(3) { animation-delay: 0.3s; }
+.terminal-window:nth-child(4) { animation-delay: 0.4s; }
+.terminal-window:nth-child(5) { animation-delay: 0.5s; }
+
