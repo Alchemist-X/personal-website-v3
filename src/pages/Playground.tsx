@@ -1,5 +1,3 @@
-import { useTheme } from '../contexts/ThemeContext'
-
 interface Project {
   title: string
   description: string
@@ -7,7 +5,6 @@ interface Project {
 }
 
 const Playground = () => {
-  const { theme } = useTheme()
   const projects: Project[] = [
     {
       title: 'Orbito AI',
@@ -26,8 +23,8 @@ const Playground = () => {
   return (
     <div className="min-h-screen p-8 pb-24">
       <div className="max-w-7xl mx-auto">
-        <h1 className={`text-5xl font-bold ${theme === 'dark' ? 'text-white' : 'text-gray-900'} mb-2`}>Playground</h1>
-        <p className={`${theme === 'dark' ? 'text-white' : 'text-gray-700'} mb-12`}>
+        <h1 className="text-5xl font-bold text-terminal-text mb-2">Playground</h1>
+        <p className="text-terminal-text mb-12">
           I like to build AI agents that can interact with humans. Here are some of the projects I have worked on.
         </p>
 
@@ -35,10 +32,10 @@ const Playground = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className={`bg-[#1a1a1a] dark:bg-[#1a1a1a] light:bg-white border border-gray-800 dark:border-gray-800 light:border-gray-300 rounded-lg p-6 hover:border-gray-700 dark:hover:border-gray-700 light:hover:border-gray-400 transition-colors`}
+              className="bg-terminal-bg border border-terminal-border rounded-lg p-6 hover:border-terminal-hover transition-colors"
             >
-              <h2 className={`text-2xl font-bold ${theme === 'dark' ? 'text-white' : 'text-gray-900'} mb-3`}>{project.title}</h2>
-              <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} mb-4`}>{project.description}</p>
+              <h2 className="text-2xl font-bold text-terminal-text mb-3">{project.title}</h2>
+              <p className="text-[var(--muted-text)] mb-4">{project.description}</p>
               {project.buttons && (
                 <div className="flex gap-3 flex-wrap">
                   {project.buttons.map((button, btnIndex) => (
@@ -47,8 +44,8 @@ const Playground = () => {
                       href={button.href}
                       className={`px-4 py-2 rounded transition-colors ${
                         button.primary
-                          ? `${theme === 'dark' ? 'bg-white text-black hover:bg-gray-200' : 'bg-gray-900 text-white hover:bg-gray-800'}`
-                          : `${theme === 'dark' ? 'border border-white text-white hover:bg-white hover:text-black' : 'border border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white'}`
+                          ? 'bg-[var(--page-text)] text-[var(--page-bg)] hover:opacity-90'
+                          : 'border border-[var(--page-text)] text-[var(--page-text)] hover:bg-[var(--page-text)] hover:text-[var(--page-bg)]'
                       }`}
                     >
                       {button.label}
@@ -65,4 +62,3 @@ const Playground = () => {
 }
 
 export default Playground
-

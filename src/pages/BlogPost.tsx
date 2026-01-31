@@ -1,5 +1,4 @@
 import { useParams, Link } from 'react-router-dom'
-import { useTheme } from '../contexts/ThemeContext'
 
 interface BlogPostContent {
   id: string
@@ -14,7 +13,6 @@ interface BlogPostContent {
 
 const BlogPost = () => {
   const { id } = useParams<{ id: string }>()
-  const { theme } = useTheme()
 
   const blogPosts: Record<string, BlogPostContent> = {
     'building-ai-chatbot': {
@@ -84,12 +82,12 @@ const BlogPost = () => {
     return (
       <div className="min-h-screen p-8 pb-24 flex items-center justify-center">
         <div className="text-center">
-          <h1 className={`text-4xl font-bold ${theme === 'dark' ? 'text-white' : 'text-gray-900'} mb-4`}>
+          <h1 className="text-4xl font-bold text-terminal-text mb-4">
             Post Not Found
           </h1>
-          <Link 
-            to="/blog" 
-            className={`${theme === 'dark' ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-700'} underline`}
+          <Link
+            to="/blog"
+            className="text-[var(--link-color)] hover:opacity-80 underline"
           >
             Back to Blog
           </Link>
@@ -101,40 +99,36 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen p-8 pb-24">
       <div className="max-w-4xl mx-auto">
-        <Link 
-          to="/blog" 
-          className={`inline-flex items-center mb-8 ${theme === 'dark' ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}
+        <Link
+          to="/blog"
+          className="inline-flex items-center mb-8 text-[var(--muted-text)] hover:text-terminal-text transition-colors"
         >
           &lt; Back to Blog
         </Link>
 
-        <div className={`border-b ${theme === 'dark' ? 'border-gray-800' : 'border-gray-300'} pb-6 mb-8`}>
+        <div className="border-b border-terminal-border pb-6 mb-8">
           <div className="flex justify-between items-start mb-4">
-            <span className={`${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'} text-sm`}>
+            <span className="text-[var(--muted-text)] text-sm">
               {post.date}
             </span>
-            <span className={`${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'} text-sm`}>
+            <span className="text-[var(--muted-text)] text-sm">
               {post.author ? `By ${post.author}` : 'By Your Name'}
             </span>
           </div>
-          
-          <h1 className={`text-4xl md:text-5xl font-bold ${theme === 'dark' ? 'text-white' : 'text-gray-900'} mb-4`}>
+
+          <h1 className="text-4xl md:text-5xl font-bold text-terminal-text mb-4">
             {post.title}
           </h1>
-          
-          <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
+
+          <p className="text-[var(--muted-text)] mb-4">
             {post.description}
           </p>
-          
+
           <div className="flex flex-wrap gap-2">
             {post.tags.map((tag, tagIndex) => (
               <span
                 key={tagIndex}
-                className={`px-3 py-1 rounded-full text-sm font-medium ${
-                  theme === 'dark' 
-                    ? 'bg-gray-800 text-gray-300' 
-                    : 'bg-gray-100 text-gray-700'
-                }`}
+                className="px-3 py-1 rounded-full text-sm font-medium bg-terminal-hover text-terminal-text"
               >
                 {tag}
               </span>
@@ -142,11 +136,11 @@ const BlogPost = () => {
           </div>
         </div>
 
-        <article className={`prose prose-invert max-w-none ${theme === 'dark' ? 'prose-invert' : ''}`}>
+        <article className="prose max-w-none">
           {post.content.map((paragraph, index) => (
-            <p 
-              key={index} 
-              className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'} mb-4 leading-relaxed`}
+            <p
+              key={index}
+              className="text-[var(--muted-text)] mb-4 leading-relaxed"
             >
               {paragraph}
             </p>
@@ -154,18 +148,18 @@ const BlogPost = () => {
 
           {post.techStack && (
             <div className="mt-8">
-              <h2 className={`text-2xl font-bold ${theme === 'dark' ? 'text-white' : 'text-gray-900'} mb-4`}>
+              <h2 className="text-2xl font-bold text-terminal-text mb-4">
                 Tech Stack Overview
               </h2>
-              <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'} mb-4`}>
+              <p className="text-[var(--muted-text)] mb-4">
                 For this project, we'll use:
               </p>
-              <ul className={`space-y-2 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
+              <ul className="space-y-2 text-[var(--muted-text)]">
                 {post.techStack.map((tech, index) => (
                   <li key={index} className="flex items-start">
-                    <span className={`mr-2 ${theme === 'dark' ? 'text-blue-400' : 'text-blue-600'}`}>•</span>
+                    <span className="mr-2 text-[var(--link-color)]">•</span>
                     <span>
-                      <strong className={theme === 'dark' ? 'text-white' : 'text-gray-900'}>{tech.name}:</strong>{' '}
+                      <strong className="text-terminal-text">{tech.name}:</strong>{' '}
                       {tech.description}
                     </span>
                   </li>
@@ -174,8 +168,8 @@ const BlogPost = () => {
             </div>
           )}
 
-          <div className={`mt-12 pt-8 border-t ${theme === 'dark' ? 'border-gray-800' : 'border-gray-300'}`}>
-            <p className={`${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'} text-sm italic`}>
+          <div className="mt-12 pt-8 border-t border-terminal-border">
+            <p className="text-[var(--muted-text)] text-sm italic">
               This is a sample blog post. Replace this content with your actual blog post content.
             </p>
           </div>
@@ -186,4 +180,3 @@ const BlogPost = () => {
 }
 
 export default BlogPost
-
