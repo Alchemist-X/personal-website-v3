@@ -61,61 +61,58 @@ const Home = () => {
           </CommandLine>
         </TerminalWindow>
 
-        <TerminalWindow title="cat updates.log" className="hover:scale-[1.02]" style={{ gridRow: 'span 1' }}>
-          <CommandLine command="cat updates.log">
+        <TerminalWindow title="cat experience.md" className="hover:scale-[1.02]" style={{ gridRow: 'span 1' }}>
+          <CommandLine command="cat experience.md">
             <div className="space-y-3 font-mono text-sm">
               <div className="hover:text-[var(--link-color)] transition-colors cursor-pointer">
-                <span className="text-[var(--muted-text)]">2025/05:</span>{' '}
-                <span className="text-terminal-text">Update 1</span>
+                <span className="text-[var(--muted-text)]">2026-now:</span>{' '}
+                <span className="text-terminal-text">OKX · Product Manager 2</span>
               </div>
               <div className="hover:text-[var(--link-color)] transition-colors cursor-pointer">
-                <span className="text-[var(--muted-text)]">2025/04:</span>{' '}
-                <span className="text-terminal-text">Update 2</span>
+                <span className="text-[var(--muted-text)]">2025:</span>{' '}
+                <span className="text-terminal-text">Alibaba · ML Engineer</span>
               </div>
               <div className="hover:text-[var(--link-color)] transition-colors cursor-pointer">
-                <span className="text-[var(--muted-text)]">2025/01:</span>{' '}
-                <span className="text-terminal-text">Update 3</span>
+                <span className="text-[var(--muted-text)]">2022:</span>{' '}
+                <span className="text-terminal-text">ByteDance · Product Intern</span>
               </div>
             </div>
           </CommandLine>
         </TerminalWindow>
 
-        <TerminalWindow title="ls research/" style={{ gridRow: 'span 1' }}>
-          <CommandLine command="ls research/">
+        <TerminalWindow title="cat education.md" style={{ gridRow: 'span 1' }}>
+          <CommandLine command="cat education.md">
             <ul className="list-disc list-inside space-y-2 text-terminal-text mb-4">
-              <li>Research Area 1</li>
-              <li>Research Area 2</li>
-              <li>Research Area 3</li>
+              <li>JHU · MS FinEcon</li>
+              <li>HKU · BEng CompEng</li>
             </ul>
-            <div className="mt-4">
-              <p className="text-[var(--muted-text)] mb-2">Recommended reading:</p>
-              <a href="#" className="text-[var(--link-color)] hover:underline">Book Title by Author</a>
+          </CommandLine>
+        </TerminalWindow>
+
+        <TerminalWindow title="cat papers.md" style={{ gridRow: 'span 2' }}>
+          <CommandLine command="cat papers.md">
+            <div className="space-y-3 text-terminal-text text-sm">
+              <p>NeurIPS WS'25 · Bargain Skills</p>
+              <p>MgmtSci WP · Gambling Addiction</p>
             </div>
           </CommandLine>
         </TerminalWindow>
 
-        <TerminalWindow title="cat profile.md" style={{ gridRow: 'span 2' }}>
-          <CommandLine command="cat profile.md">
-            <div className="space-y-3 text-terminal-text">
-              <p>
-                Hi, I am a researcher/developer. Brief introduction about yourself.
-              </p>
-              <p>
-                More details about your background, education, and interests.
-              </p>
-            </div>
-          </CommandLine>
-        </TerminalWindow>
-
-        <TerminalWindow title="cat mentors.md" style={{ gridColumn: 'span 2', gridRow: 'span 1' }}>
-          <CommandLine command="cat mentors.md">
+        <TerminalWindow title="cat skills.md" style={{ gridColumn: 'span 2', gridRow: 'span 1' }}>
+          <CommandLine command="cat skills.md">
             <div>
-              <p className="text-terminal-text mb-3">I was fortunate to work with:</p>
-              <ul className="list-disc list-inside space-y-1">
-                <li><a href="#" className="text-[var(--link-color)] hover:underline">Mentor 1</a></li>
-                <li><a href="#" className="text-[var(--link-color)] hover:underline">Mentor 2</a></li>
-                <li><a href="#" className="text-[var(--link-color)] hover:underline">Mentor 3</a></li>
-              </ul>
+              <p className="text-terminal-text mb-3">Skills</p>
+              <div className="flex flex-wrap gap-2 text-sm">
+                <span className="text-terminal-text">Product Strategy</span>
+                <span className="text-[var(--muted-text)]">·</span>
+                <span className="text-terminal-text">ML Evaluation</span>
+                <span className="text-[var(--muted-text)]">·</span>
+                <span className="text-terminal-text">Econometrics</span>
+                <span className="text-[var(--muted-text)]">·</span>
+                <span className="text-terminal-text">A/B Testing</span>
+                <span className="text-[var(--muted-text)]">·</span>
+                <span className="text-terminal-text">Data Pipelines</span>
+              </div>
             </div>
           </CommandLine>
         </TerminalWindow>
